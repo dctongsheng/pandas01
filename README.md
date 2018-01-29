@@ -6,7 +6,7 @@ DataFrame表格行的数据结构，包含一组有序的列
 #Series
 * ## 何为Series？
 Series由一组数据（**numpy的ndarray**）和一组与之相对应的标签构成
-* ##创建Series
+* ## 创建Series
 ```
 from pandas import Series,DataFrame
 import pandas as pd
@@ -14,13 +14,13 @@ ser01=Series([1,2,3],index=['n','m','j'])
 #通过字典的形式创建
 ser02 = Series({3:"a",4:'b',5:"c"})
 ```
-* ##索引切片
+* ## 索引切片
 ```
 ser02[0:2]
 ser01["n"]
 ```
 
-* ##运算
+* ## 运算
 类似ndarray运算
 ```
 print(ser01[ser01>=2])#注意输出值用中括号括起来
@@ -29,23 +29,23 @@ ser01+10
 np.exp(ser01)
 np.fabs(ser01)#绝对值
 ```
-* ##缺失值处理
+* ## 缺失值处理
 ```
 ser02=Series(ser01,index=['n ','m','j','q'])
 pd.isnull(ser02)
 #过滤掉np.nan的值
 ser02[pd.notnull(ser02)]
 ```
-* ##自动对齐
+* ## 自动对齐
 ```
 #自动对齐，把相同的index相加
 ser03=Series([1,2,3,4],index=['n','h','m','t'])
 ser02+ser03
 ```
-#DataFrame
-* ##何为DataFrame？
+# DataFrame
+* ## 何为DataFrame？
 DataFrame表格行的数据结构，包含一组有序的列，有行、列索引，可以看做是Series的字典组成
-* ##创建DataFrame
+* ## 创建DataFrame
 ```
 df01 =DataFrame([['susan','long','meimei'],[50,60,60]],index=['姓名','成绩'],columns=['语文','math','english'])
 df01
@@ -59,7 +59,7 @@ dict={
 df02=DataFrame(dict,index=['one','two','three','four'])
 df02
 ```
-* ##通过行列数据获取
+* ## 通过行列数据获取
 默认为列获取，如果获取行可用pd.loc()
 ```
 df02['apart']
@@ -72,20 +72,20 @@ df02['month']=3
 #行操作
 df02.loc['two']
 ```
-* ##读取文件
+* ## 取文件
 ```
 分别读取csv、excel、txt文件
 df04=pd.read_csv('data.csv')
 df05=pd.read_excel('data.xlsx')#excel
 df03 = pd.read_csv("data.txt",sep="\t",header=None)
 ```
-* ##过滤切片
+* ## 过滤切片
 ```
 df05.columns[1:]
 df05[df05.columns[1:]]
 df1=df02.dropna(axis=1)#
 ```
-* ##缺失值操作
+* ## 缺失值操作
 和series类似
 ```
 df04.isnull()
@@ -96,7 +96,7 @@ df04.dropna(how="all")
 df04.fillna(0)
 df04.fillna({0:1,1:2,2:3})
 ```
-* ##数学统计
+* ## 数学统计
 常见的方法如count describe min/max idxmin、idxmax quantile sum mean median mad var std cumsum pct_change
 ```
 df02.describe()
@@ -106,7 +106,7 @@ df02.median()#中位数
 df02.pct_change()#计算百分比变化
 ```
 
-* ##协方差和相对系数
+* ## 协方差和相对系数
 直观反应两组数据的相关程度分别为cov，corr
 ```
 df2=DataFrame({
@@ -116,7 +116,7 @@ df2=DataFrame({
 df2.cov()
 df2.corr()
 ```
-* ##唯一值，值计数，成员资格
+* ## 唯一值，值计数，成员资格
 唯一值unique，值计数value_counts，成员资格isin（等于用没里面的元素来过滤）
 ```
 df3=Series([12,13,14,15,13,13,12,11,14])
@@ -124,7 +124,7 @@ df3.unique()
 df3.value_counts()
 df3[df3.isin([14,15])]#成员资格
 ```
-* ##层次索引
+* ## 层次索引
 ```
 索引可以大于一维，unstack(level=1)可把series转化为dataframe，swapleve转换索引
 df.set_index([])
