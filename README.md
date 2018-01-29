@@ -4,7 +4,7 @@ pandas是在numpy的基础上开发出来的，有两种数据类型Series和Dat
 Series由一组数据（**numpy的ndarray**）和一组与之相对应的标签构成
 DataFrame表格行的数据结构，包含一组有序的列
 #Series
-* ##何为Series？
+* ## 何为Series？
 Series由一组数据（**numpy的ndarray**）和一组与之相对应的标签构成
 * ##创建Series
 ```
